@@ -5,3 +5,8 @@ body{
 body.cms{
     padding-top: 70px;
 }
+
+.control-label.required:before {
+    color: #e74c3c;
+    content: "* ";
+}

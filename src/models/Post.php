@@ -1,30 +1,37 @@
 <?php
 
-class Post extends Eloquent
+namespace Fourtwenty\Cms;
+
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+
+class Post extends \Eloquent
 {
 
+    use SoftDeletingTrait;
+
+    protected $connection = 'fourtwenty.cms';
     protected $fillable = ['id'];
     protected $appends = ['image_full_path', 'month_name'];
 
     public function group()
     {
-        return $this->belongsTo('PostGroup');
+        return $this->belongsTo('Fourtwenty\Cms\PostGroup');
     }
 
     public function category()
     {
-        return $this->belongsTo('PostCategory');
+        return $this->belongsTo('Fourtwenty\Cms\PostCategory');
     }
 
     public function attachments()
     {
-        return $this->morphToMany('Attachment', 'attachable');
+        return $this->morphToMany('Fourtwenty\Cms\Attachment', 'attachable');
     }
 
     public function getByPage($page = 1, $limit = 10, $post_group_id)
     {
 
-        $results = new StdClass();
+        $results = new \StdClass();
         $results->page = $page;
         $results->limit = $limit;
         $results->totalItems = 0;
@@ -46,7 +53,7 @@ class Post extends Eloquent
     public function editions()
     {
         $editions = Post::distinct()
-                ->select('date', DB::raw('MONTH(date) as month'), DB::raw('year(date) as year'))
+                ->select('date', \DB::raw('MONTH(date) as month'), \DB::raw('year(date) as year'))
                 ->groupBy('month', 'year')
                 ->orderBy('year', 'desc')
                 ->orderBy('month', 'desc')

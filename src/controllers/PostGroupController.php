@@ -1,5 +1,10 @@
 <?php
 
+namespace Fourtwenty\Cms;
+
+use Redirect,
+    Session;
+
 class PostGroupController extends BaseController
 {
 

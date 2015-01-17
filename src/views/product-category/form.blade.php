@@ -1,5 +1,5 @@
 <div class="form-group">
-    {{ Form::label('name', 'Category Name', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('name', 'Category Name', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::text('name', Input::old('name'), ['class' => 'form-control']) }}
     </div>

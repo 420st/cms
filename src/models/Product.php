@@ -1,25 +1,32 @@
 <?php
 
-class Product extends Eloquent
+namespace Fourtwenty\Cms;
+
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+
+class Product extends \Eloquent
 {
 
+    use SoftDeletingTrait;
+
+    protected $connection = 'fourtwenty.cms';
     protected $fillable = ['id'];
     protected $appends = [];
 
     public function category()
     {
-        return $this->belongsTo('ProductCategory', 'product_category_id');
+        return $this->belongsTo('Fourtwenty\Cms\ProductCategory', 'product_category_id');
     }
 
     public function attachments()
     {
-        return $this->morphToMany('Attachment', 'attachable');
+        return $this->morphToMany('Fourtwenty\Cms\Attachment', 'attachable');
     }
 
     public function getByPage($page = 1, $limit = 10)
     {
 
-        $results = new StdClass();
+        $results = new \StdClass();
         $results->page = $page;
         $results->limit = $limit;
         $results->totalItems = 0;

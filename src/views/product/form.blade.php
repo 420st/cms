@@ -1,12 +1,12 @@
 <div class="form-group">
-    {{ Form::label('name', 'Name', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('name', 'Name', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::text('name', Input::old('name'), ['class' => 'form-control']) }}
     </div>
 </div>
 
 <div class="form-group">
-    {{ Form::label('product_category_id', 'Category', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('product_category_id', 'Category', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::select('product_category_id', $categories, Input::old('product_category_id'), ['class' => 'form-control']) }}
     </div>
@@ -27,7 +27,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('selling_price', 'Selling Price (AUD)', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('selling_price', 'Selling Price (AUD)', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::text('selling_price', Input::old('selling_price'), ['class' => 'form-control']) }}
     </div>

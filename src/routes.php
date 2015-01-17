@@ -2,14 +2,14 @@
 
 $config = Config::get('cms::config');
 
-Route::group(['prefix' => $config['cms_path']], function() use ($config) {
+Route::group(['prefix' => $config['cms_path'], 'namespace' => 'Fourtwenty\Cms', 'before' => 'cmsconf'], function() use ($config) {
 
     // secure area
-    Route::group(array('before' => 'auth'), function() use ($config) {
+    Route::group(array('before' => 'cmsauth'), function() use ($config) {
 
-        Route::get('/', function() use ($config) {
-            return Redirect::route($config['cms_path'] . '.pg.index');
-        });
+        Route::get('/', ['uses' => function() use ($config) {
+        return Redirect::route($config['cms_path'] . '.pg.index');
+    }, 'as' => $config['cms_path'] . '.home']);
 
         Route::group(['prefix' => 'product'], function() use ($config) {
             Route::get('category/delete/{id}', array('uses' => 'ProductCategoryController@destroy', 'as' => $config['cms_path'] . '.product.category.delete'));
@@ -30,15 +30,4 @@ Route::group(['prefix' => $config['cms_path']], function() use ($config) {
     Route::get('login', ['uses' => 'AuthController@getLogin', 'as' => $config['cms_path'] . '.login']);
     Route::post('login', ['uses' => 'AuthController@postLogin', 'as' => $config['cms_path'] . '.postlogin']);
     Route::get('logout', ['uses' => 'AuthController@getLogout', 'as' => $config['cms_path'] . '.logout']);
-
-    // seperate filter because a seperate login page for cms is used
-    Route::filter('auth', function() use ($config) {
-        if (Auth::guest()) {
-            if (Request::ajax()) {
-                return Response::make('Unauthorized', 401);
-            } else {
-                return Redirect::route($config['cms_path'] . '.login');
-            }
-        }
-    });
 });

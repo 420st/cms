@@ -1,5 +1,13 @@
 <?php
 
+namespace Fourtwenty\Cms;
+
+use Redirect,
+    View,
+    Validator,
+    Session,
+    Input;
+
 class PostController extends BaseController
 {
 
@@ -17,7 +25,7 @@ class PostController extends BaseController
         $post = new Post();
         $paginatedPosts = $post->getByPage($page, $this->perPage, $post_group_id);
 
-        $posts = Paginator::make($paginatedPosts->items, $paginatedPosts->totalItems, $paginatedPosts->limit);
+        $posts = \Paginator::make($paginatedPosts->items, $paginatedPosts->totalItems, $paginatedPosts->limit);
 
         $post_group = PostGroup::find($post_group_id);
 
@@ -60,8 +68,8 @@ class PostController extends BaseController
         $post_group = PostGroup::find($post_group_id);
 
         if ($post_group->type->name != 'faq') {
-            $rules['date'] = 'required|date';
             $rules['url'] = 'required';
+            $rules['date'] = 'required|date';
         }
 
         $validator = Validator::make(Input::all(), $rules);

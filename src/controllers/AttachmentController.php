@@ -1,5 +1,11 @@
 <?php
 
+namespace Fourtwenty\Cms;
+
+use Validator,
+    Session,
+    Input;
+
 class AttachmentController extends BaseController
 {
 
@@ -25,7 +31,7 @@ class AttachmentController extends BaseController
                             $attachment->size = $file->getSize();
 
                             $path_hash = md5(microtime() . $attachment->name);
-                            $attachment->path = substr($path_hash, 0, 4) . '/' . substr($path_hash, 4, 4) . '/';
+                            $attachment->path = substr($path_hash, 0, 2) . '/' . substr($path_hash, 2, 2) . '/' . substr($path_hash, 4) . '/';
 
                             if ($file->move(public_path('uploads/' . $attachment->path), $attachment->name)) {
                                 $attachment->save();

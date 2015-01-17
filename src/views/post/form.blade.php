@@ -1,5 +1,5 @@
 <div class="form-group">
-    {{ Form::label('title', 'Title', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('title', 'Title', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::text('title', Input::old('title'), ['class' => 'form-control']) }}
     </div>
@@ -7,7 +7,7 @@
 
 @if(!in_array($postgroup->type->name, array('faq')))
 <div class="form-group">
-    {{ Form::label('url', 'URL Slug', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('url', 'URL Slug', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::text('url', Input::old('url'), ['class' => 'form-control']) }}
     </div>
@@ -16,7 +16,7 @@
 
 @if(in_array($postgroup->type->name, array('blog', 'event')))
 <div class="form-group">
-    {{ Form::label('category_id', 'Category', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('category_id', 'Category', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::select('category_id', $categories, Input::old('category_id'), ['class' => 'form-control']) }}
     </div>
@@ -42,7 +42,7 @@
 
 @if(!in_array($postgroup->type->name, array('faq')))
 <div class="form-group">
-    {{ Form::label('date', 'Date', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('date', 'Date', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::text('date', Input::old('date'), ['class' => 'form-control']) }}
     </div>

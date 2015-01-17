@@ -1,8 +1,11 @@
 <?php
 
-Use \Config;
+namespace Fourtwenty\Cms;
 
-class BaseController extends Controller
+use Config,
+    View;
+
+class BaseController extends \Controller
 {
 
     protected $layout = 'cms::layouts.default';

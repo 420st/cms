@@ -13,7 +13,7 @@ class CreatePostGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_groups', function(Blueprint $table) {
+        Schema::create('cms_post_groups', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->integer('post_group_type_id');
@@ -21,7 +21,7 @@ class CreatePostGroupsTable extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('post_group_types', function(Blueprint $table) {
+        Schema::create('cms_post_group_types', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
         });
@@ -34,8 +34,8 @@ class CreatePostGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('post_groups');
-        Schema::drop('post_group_types');
+        Schema::drop('cms_post_groups');
+        Schema::drop('cms_post_group_types');
     }
 
 }

@@ -1,5 +1,13 @@
 <?php
 
+namespace Fourtwenty\Cms;
+
+use Redirect,
+    View,
+    Session,
+    Validator,
+    Input;
+
 class ProductCategoryController extends BaseController
 {
 
@@ -18,7 +26,7 @@ class ProductCategoryController extends BaseController
         $category = new ProductCategory();
         $paginatedCategories = $category->getByPage($page, $this->perPage);
 
-        $categories = Paginator::make($paginatedCategories->items, $paginatedCategories->totalItems, $paginatedCategories->limit);
+        $categories = \Paginator::make($paginatedCategories->items, $paginatedCategories->totalItems, $paginatedCategories->limit);
 
         $this->layout->content = View::make('cms::product-category.index', array('categories' => $categories));
     }

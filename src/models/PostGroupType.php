@@ -1,8 +1,11 @@
 <?php
 
-class PostGroupType extends Eloquent
+namespace Fourtwenty\Cms;
+
+class PostGroupType extends \Eloquent
 {
 
+    protected $connection = 'fourtwenty.cms';
     public $timestamps = false;
     protected $appends = ['display_name', 'display_collective_name'];
 

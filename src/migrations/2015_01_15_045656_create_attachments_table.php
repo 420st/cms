@@ -13,7 +13,7 @@ class CreateAttachmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attachments', function(Blueprint $table) {
+        Schema::create('cms_attachments', function(Blueprint $table) {
             $table->increments('id');
             $table->string('path', 200);
             $table->string('name', 200);
@@ -23,7 +23,7 @@ class CreateAttachmentsTable extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('attachables', function(Blueprint $table) {
+        Schema::create('cms_attachables', function(Blueprint $table) {
             $table->integer('attachment_id');
             $table->integer('attachable_id');
             $table->string('attachable_type', 100);
@@ -37,8 +37,8 @@ class CreateAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('attachments');
-        Schema::drop('attachables');
+        Schema::drop('cms_attachments');
+        Schema::drop('cms_attachables');
     }
 
 }

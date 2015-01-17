@@ -25,8 +25,13 @@ class CmsServiceProvider extends ServiceProvider
     {
         $this->package('fourtwenty/cms');
         include __DIR__ . '/../../routes.php';
+        include __DIR__ . '/../../filters.php';
         include __DIR__ . '/../../start/global.php';
-//        View::addNamespace('Cms', __DIR__ . '/../../views');
+
+        // create a different db con for the package, merging existing con settings
+        $this->app['config']['database.connections.fourtwenty.cms'] = array_merge(
+                $this->app['config']['database.connections.mysql'], \Config::get('cms::database.connections.mysql')
+        );
     }
 
     /**

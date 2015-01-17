@@ -13,7 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function(Blueprint $table) {
+        Schema::create('cms_products', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name', 200);
             $table->longText('description');
@@ -25,14 +25,14 @@ class CreateProductsTable extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('product_categories', function(Blueprint $table) {
+        Schema::create('cms_product_categories', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name', 200);
             $table->timestamps();
             $table->softDeletes();
         });
 
-        Schema::create('product_merchants', function(Blueprint $table) {
+        Schema::create('cms_product_merchants', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name', 200);
             $table->timestamps();
@@ -47,9 +47,9 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('products');
-        Schema::drop('product_categories');
-        Schema::drop('product_merchants');
+        Schema::drop('cms_products');
+        Schema::drop('cms_product_categories');
+        Schema::drop('cms_product_merchants');
     }
 
 }

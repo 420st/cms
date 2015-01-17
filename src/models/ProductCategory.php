@@ -1,15 +1,22 @@
 <?php
 
-class ProductCategory extends Eloquent
+namespace Fourtwenty\Cms;
+
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+
+class ProductCategory extends \Eloquent
 {
 
+    use SoftDeletingTrait;
+
+    protected $connection = 'fourtwenty.cms';
     protected $fillable = ['id'];
     protected $appends = [''];
 
     public function getByPage($page = 1, $limit = 10)
     {
 
-        $results = new StdClass();
+        $results = new \StdClass();
         $results->page = $page;
         $results->limit = $limit;
         $results->totalItems = 0;
