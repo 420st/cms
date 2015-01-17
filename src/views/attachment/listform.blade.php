@@ -9,7 +9,7 @@
             @foreach($model->attachments as $attachment)
             <tr>
                 <td><a href="{{ url('uploads/' . $attachment->path . $attachment->name) }}" target="_blank">{{ $attachment->name }}</a></td>
-                <td class="text-center"><a data-id="{{ $attachment->id }}" href="{{ route($cms_path . '.attachment.delete', $attachment->id) }}" class="delete"><i class="glyphicon glyphicon-trash small"></i></a></td>
+                <td class="text-center"><a data-id="{{ $attachment->id }}" href="{{ route($path . '.attachment.delete', $attachment->id) }}" class="delete"><i class="glyphicon glyphicon-trash small"></i></a></td>
             </tr>
             @endforeach
             @endif

@@ -33,7 +33,7 @@ class BaseController extends \Controller
         }
 
         View::share('site_name', $this->config['site_name']);
-        View::share('cms_path', $this->config['cms_path']);
+        View::share('path', $this->config['path']);
     }
 
     public function JSONRespond()

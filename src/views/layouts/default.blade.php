@@ -10,16 +10,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route($cms_path . '.home') }}">{{ $site_name }} CMS</a>
+            <a class="navbar-brand" href="{{ route($path . '.home') }}">{{ $site_name }} CMS</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="{{ Route::is($cms_path . '.product.*') ? 'active' : '' }}"><a href="{{ route($cms_path . '.product.index') }}">Shop</a></li>
-                <li class="{{ Route::is($cms_path . '.pg.*') ? 'active' : '' }}"><a href="{{ route($cms_path . '.pg.index') }}">CMS</a></li>
+                <li class="{{ Route::is($path . '.product.*') ? 'active' : '' }}"><a href="{{ route($path . '.product.index') }}">Shop</a></li>
+                <li class="{{ Route::is($path . '.pg.*') ? 'active' : '' }}"><a href="{{ route($path . '.pg.index') }}">CMS</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--<li><a href="#">{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</a></li>-->
-                <li><a href="{{ route($cms_path . '.logout') }}">Logout</a></li>
+                <li><a href="{{ route($path . '.logout') }}">Logout</a></li>
             </ul>
         </div>
     </div>

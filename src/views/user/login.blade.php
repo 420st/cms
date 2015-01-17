@@ -12,7 +12,7 @@
 
                 @include('cms::partials.message')
 
-                {{ Form::open([$cms_path . 'postlogin']) }}
+                {{ Form::open([$path . 'postlogin']) }}
                 <div class="form-group">
                     {{ Form::label('username', 'Username') }}
                     {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'tabindex' => 1)) }}

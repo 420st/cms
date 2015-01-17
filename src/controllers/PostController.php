@@ -75,7 +75,7 @@ class PostController extends BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::route($this->config['cms_path'] . '.pg.post.create', $post_group_id)
+            return Redirect::route($this->config['path'] . '.pg.post.create', $post_group_id)
                             ->withErrors($validator)
                             ->withInput();
         } else {
@@ -107,7 +107,7 @@ class PostController extends BaseController
 
             Session::flash('success', 'Successfully created post!');
 
-            return Redirect::route($this->config['cms_path'] . '.pg.post.index', $post_group_id);
+            return Redirect::route($this->config['path'] . '.pg.post.index', $post_group_id);
         }
     }
 
@@ -167,7 +167,7 @@ class PostController extends BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::route($this->config['cms_path'] . '.pg.post.edit', [$post_group_id, $post_id])
+            return Redirect::route($this->config['path'] . '.pg.post.edit', [$post_group_id, $post_id])
                             ->withErrors($validator)
                             ->withInput();
         } else {
@@ -203,7 +203,7 @@ class PostController extends BaseController
 
             Session::flash('success', 'Successfully updated post!');
 
-            return Redirect::route($this->config['cms_path'] . '.pg.post.index', $post_group_id);
+            return Redirect::route($this->config['path'] . '.pg.post.index', $post_group_id);
         }
     }
 
@@ -219,7 +219,7 @@ class PostController extends BaseController
 
         Session::flash('success', 'Successfully deleted the post!');
 
-        return Redirect::route($this->config['cms_path'] . '.pg.post.index', $post_group_id);
+        return Redirect::route($this->config['path'] . '.pg.post.index', $post_group_id);
     }
 
 }

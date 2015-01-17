@@ -9,7 +9,7 @@
 
 <script type="text/javascript" src="/js/user.js"></script>
 
-{{ Form::model($product_category, ['route' => [$cms_path . '.product.category.update', $product_category->id], 'files' => true, 'method' => 'put', 'class'=>'form-horizontal']) }}
+{{ Form::model($product_category, ['route' => [$path . '.product.category.update', $product_category->id], 'files' => true, 'method' => 'put', 'class'=>'form-horizontal']) }}
 
 @include('cms::product-category.form')
 

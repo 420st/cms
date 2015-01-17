@@ -9,7 +9,7 @@
 
 <script type="text/javascript" src="/js/user.js"></script>
 
-{{ Form::model($post, ['route' => [$cms_path . '.pg.post.update', $postgroup->id, $post->id], 'files' => true, 'method' => 'put', 'class'=>'form-horizontal']) }}
+{{ Form::model($post, ['route' => [$path . '.pg.post.update', $postgroup->id, $post->id], 'files' => true, 'method' => 'put', 'class'=>'form-horizontal']) }}
 
 @include('cms::post.form')
 

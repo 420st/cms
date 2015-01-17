@@ -55,7 +55,7 @@ class ProductCategoryController extends BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::route($this->config['cms_path'] . '.product.category.create')
+            return Redirect::route($this->config['path'] . '.product.category.create')
                             ->withErrors($validator)
                             ->withInput();
         } else {
@@ -65,7 +65,7 @@ class ProductCategoryController extends BaseController
 
             Session::flash('success', 'Successfully created product category!');
 
-            return Redirect::route($this->config['cms_path'] . '.product.category.index');
+            return Redirect::route($this->config['path'] . '.product.category.index');
         }
     }
 
@@ -108,7 +108,7 @@ class ProductCategoryController extends BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::route($this->config['cms_path'] . '.product.category.edit', $product_category_id)
+            return Redirect::route($this->config['path'] . '.product.category.edit', $product_category_id)
                             ->withErrors($validator)
                             ->withInput();
         } else {
@@ -119,7 +119,7 @@ class ProductCategoryController extends BaseController
 
             Session::flash('success', 'Successfully updated product category!');
 
-            return Redirect::route($this->config['cms_path'] . '.product.category.index');
+            return Redirect::route($this->config['path'] . '.product.category.index');
         }
     }
 
@@ -135,7 +135,7 @@ class ProductCategoryController extends BaseController
 
         Session::flash('success', 'Successfully deleted the product category!');
 
-        return Redirect::route($this->config['cms_path'] . '.product.category.index');
+        return Redirect::route($this->config['path'] . '.product.category.index');
     }
 
 }

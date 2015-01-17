@@ -29,8 +29,8 @@
             <td>{{ $post->date }}</td>
             @endif
             <td>{{ $post->created_at }}</td>
-            <td class="text-center"><a href="{{ route($cms_path . '.pg.post.edit', [$postgroup->id, $post->id]) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
-            <td class="text-center"><a href="{{ route($cms_path . '.pg.post.delete', [$postgroup->id, $post->id]) }}" onclick="return (confirm('Are you sure you want to delete this?'))"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td class="text-center"><a href="{{ route($path . '.pg.post.edit', [$postgroup->id, $post->id]) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+            <td class="text-center"><a href="{{ route($path . '.pg.post.delete', [$postgroup->id, $post->id]) }}" onclick="return (confirm('Are you sure you want to delete this?'))"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
         @endforeach
         @if(count($posts) == 0)

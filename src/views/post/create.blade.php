@@ -7,7 +7,7 @@
 
 @include('cms::partials.message')
 
-{{ Form::open(['route' => [$cms_path . '.pg.post.store', $postgroup->id], 'files' => true, 'class'=>'form-horizontal']) }}
+{{ Form::open(['route' => [$path . '.pg.post.store', $postgroup->id], 'files' => true, 'class'=>'form-horizontal']) }}
 
 @include('cms::post.form')
 

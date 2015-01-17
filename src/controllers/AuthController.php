@@ -21,7 +21,7 @@ class AuthController extends BaseController
     public function getLogin()
     {
         if (Auth::check()) {
-            return Redirect::route($this->config['cms_path'])->with('success', 'You are already logged in');
+            return Redirect::route($this->config['path'])->with('success', 'You are already logged in');
         }
 
         $this->layout->content = View::make('cms::user.login');
@@ -47,13 +47,13 @@ class AuthController extends BaseController
         if ($validator->passes()) {
 
             if (Auth::attempt($userdata)) {
-                return Redirect::intended($this->config['cms_path']); //->with('success', 'You have logged in successfully');
+                return Redirect::intended($this->config['path']); //->with('success', 'You have logged in successfully');
             } else {
-                return Redirect::route($this->config['cms_path'] . '.login')->withErrors(array('password' => 'Password invalid'))->withInput(Input::except('password'));
+                return Redirect::route($this->config['path'] . '.login')->withErrors(array('password' => 'Password invalid'))->withInput(Input::except('password'));
             }
         }
 
-        return Redirect::route($this->config['cms_path'] . '.login')->withErrors($validator)->withInput(Input::except('password'));
+        return Redirect::route($this->config['path'] . '.login')->withErrors($validator)->withInput(Input::except('password'));
     }
 
     public function getLogout()
@@ -61,7 +61,7 @@ class AuthController extends BaseController
         Auth::logout();
 
         // Redirect to homepage
-        return Redirect::route($this->config['cms_path'] . '.login')->with('success', 'You have been successfully logged out');
+        return Redirect::route($this->config['path'] . '.login')->with('success', 'You have been successfully logged out');
     }
 
 }

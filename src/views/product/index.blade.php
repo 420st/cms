@@ -23,8 +23,8 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->category->name }}</td>
             <td>{{ $product->created_at }}</td>
-            <td class="text-center"><a href="{{ route($cms_path . '.product.edit', $product->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
-            <td class="text-center"><a href="{{ route($cms_path . '.product.delete', $product->id) }}" onclick="return (confirm('Are you sure you want to delete this?'))"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td class="text-center"><a href="{{ route($path . '.product.edit', $product->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+            <td class="text-center"><a href="{{ route($path . '.product.delete', $product->id) }}" onclick="return (confirm('Are you sure you want to delete this?'))"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
         @endforeach
         @if(count($products) == 0)

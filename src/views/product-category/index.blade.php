@@ -21,8 +21,8 @@
         <tr>
             <td>{{ $category->name }}</td>
             <td>{{ $category->created_at }}</td>
-            <td class="text-center"><a href="{{ route($cms_path . '.product.category.edit', $category->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
-            <td class="text-center"><a href="{{ route($cms_path . '.product.category.delete', $category->id) }}" onclick="return (confirm('Are you sure you want to delete this?'))"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td class="text-center"><a href="{{ route($path . '.product.category.edit', $category->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+            <td class="text-center"><a href="{{ route($path . '.product.category.delete', $category->id) }}" onclick="return (confirm('Are you sure you want to delete this?'))"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
         @endforeach
         @if(count($categories) == 0)

@@ -7,7 +7,7 @@
 
 @include('cms::partials.message')
 
-{{ Form::open(['route' => $cms_path . '.product.store', 'files' => true, 'class'=>'form-horizontal']) }}
+{{ Form::open(['route' => $path . '.product.store', 'files' => true, 'class'=>'form-horizontal']) }}
 
 @include('cms::product.form')
 

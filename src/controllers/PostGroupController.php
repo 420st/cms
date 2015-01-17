@@ -19,7 +19,7 @@ class PostGroupController extends BaseController
     {
         $post_group = PostGroup::first();
 
-        return Redirect::route($this->config['cms_path'] . '.pg.post.index', $post_group->id);
+        return Redirect::route($this->config['path'] . '.pg.post.index', $post_group->id);
     }
 
     /**

@@ -15,7 +15,7 @@ class Product extends \Eloquent
 
     public function category()
     {
-        return $this->belongsTo('Fourtwenty\Cms\ProductCategory', 'product_category_id');
+        return $this->belongsTo('Fourtwenty\Cms\ProductCategory', 'product_category_id')->withTrashed();
     }
 
     public function attachments()
