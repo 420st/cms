@@ -1,0 +1,29 @@
+{
+    "name": "fourtwenty/cms",
+    "description": "Content Management System for Laravel",
+    "authors": [
+        {
+            "name": "Malitta Nanayakkara",
+            "email": "malitta@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/config",
+            "src/controllers",
+            "src/models",
+            "src/migrations",
+            "src/database",
+            "src/views"
+        ],
+        "psr-0": {
+            "Fourtwenty\\Cms\\": "src/"
+        }
+    },
+    "license": "proprietary",
+    "minimum-stability": "stable"
+}
