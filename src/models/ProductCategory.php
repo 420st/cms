@@ -11,7 +11,7 @@ class ProductCategory extends \Eloquent
 
     protected $connection = 'fourtwenty.cms';
     protected $fillable = ['id'];
-    protected $appends = [''];
+    protected $appends = ['slug'];
 
     public function getByPage($page = 1, $limit = 10)
     {
@@ -33,6 +33,11 @@ class ProductCategory extends \Eloquent
         $results->items = $posts->all();
 
         return $results;
+    }
+
+    public function getSlugAttribute()
+    {
+        return \Str::slug($this->name);
     }
 
 }
