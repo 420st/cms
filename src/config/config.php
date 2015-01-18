@@ -1,6 +1,6 @@
 <?php
 
 return array(
-    'site_name' => 'Machan',
+    'site_name' => 'Fourtwenty',
     'path' => 'cms'
 );

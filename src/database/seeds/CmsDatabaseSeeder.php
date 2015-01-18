@@ -1,5 +1,7 @@
 <?php
 
+namespace Fourtwenty\Cms;
+
 use Illuminate\Database\Seeder;
 use Fourtwenty\Cms\User as User;
 use Fourtwenty\Cms\PostCategory as PostCategory;
@@ -14,7 +16,7 @@ class CmsDatabaseSeeder extends Seeder
     {
 
         // to use non eloquent-functions we need to unguard
-        Eloquent::unguard();
+        \Eloquent::unguard();
 
         User::truncate();
 
@@ -22,7 +24,7 @@ class CmsDatabaseSeeder extends Seeder
         $user->username = 'admin';
         $user->first_name = 'Admin';
         $user->last_name = 'User';
-        $user->password = Hash::make('abc123');
+        $user->password = \Hash::make('abc123');
         $user->save();
 
         PostCategory::truncate();

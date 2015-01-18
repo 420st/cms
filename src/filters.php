@@ -19,7 +19,7 @@ Route::filter('cmsauth', function() {
         if (Request::ajax()) {
             return Response::make('Unauthorized', 401);
         } else {
-            return Redirect::route(Config::get('cms::config.cms_path') . '.login');
+            return Redirect::route(Config::get('cms::config.path') . '.login');
         }
     }
 });
