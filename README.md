@@ -15,7 +15,7 @@ Developers creating websites for themselves or for clients.
  ```php
  'FourTwenty\Cms\CmsControllerServiceProvider',
  ```
- 
+
 3. Run migration scripts to create related tables in the DB
  ```bash
  php artisan migrate --package=fourtwenty/cms
@@ -25,3 +25,13 @@ Developers creating websites for themselves or for clients.
  ```bash
  php artisan asset:publish --package=fourtwenty/cms
  ```
+
+5. Run migrations
+ ```bash
+ php artisan db:seed --class="Fourtwenty\Cms\CmsDatabaseSeeder"
+ php artisan db:seed --class="CmsDatabaseSeeder"
+ ```
+
+6. Custom configurations
+ ```bash
+  php artisan config:publish fourtwenty/cms
