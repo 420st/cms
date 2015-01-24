@@ -42,6 +42,10 @@ class CmsDatabaseSeeder extends Seeder
         PostGroupType::truncate();
 
         $pgt = new PostGroupType;
+        $pgt->name = 'blog';
+        $pgt->save();
+
+        $pgt = new PostGroupType;
         $pgt->name = 'news';
         $pgt->save();
 

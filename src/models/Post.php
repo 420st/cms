@@ -11,7 +11,7 @@ class Post extends \Eloquent
 
     protected $connection = 'fourtwenty.cms';
     protected $fillable = ['id'];
-    protected $appends = ['image_full_path', 'month_name'];
+    protected $appends = ['month_name'];
 
     public function group()
     {
@@ -20,7 +20,7 @@ class Post extends \Eloquent
 
     public function category()
     {
-        return $this->belongsTo('Fourtwenty\Cms\PostCategory');
+        return $this->belongsTo('Fourtwenty\Cms\PostCategory', 'post_category_id');
     }
 
     public function attachments()

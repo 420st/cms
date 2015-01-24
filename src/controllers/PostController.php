@@ -13,6 +13,12 @@ class PostController extends BaseController
 
     protected $perPage = 8;
 
+    public function __construct()
+    {
+        parent::__construct();
+        View::share('postgroups', PostGroup::all());
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +26,7 @@ class PostController extends BaseController
      */
     public function index($post_group_id = 0)
     {
+
         $page = Input::get('page', 1);
 
         $post = new Post();
@@ -84,7 +91,7 @@ class PostController extends BaseController
             $post = new Post();
             $post->title = Input::get('title');
             $post->url = Input::get('url', '');
-            $post->post_category_id = Input::get('category', 0);
+            $post->post_category_id = Input::get('category_id', 0);
             $post->post_group_id = $post_group_id;
             $post->content = Input::get('content');
             $post->date = gmdate('Y-m-d', strtotime(Input::get('date')));
@@ -175,7 +182,7 @@ class PostController extends BaseController
             $post = Post::find($post_id);
             $post->title = Input::get('title');
             $post->url = Input::get('url');
-            $post->post_category_id = Input::get('category');
+            $post->post_category_id = Input::get('category_id');
             $post->content = Input::get('content');
             $post->date = gmdate('Y-m-d', strtotime(Input::get('date')));
 

@@ -20,6 +20,9 @@ class PostGroupType extends \Eloquent
             case 'news':
                 $display_name = 'news item';
                 break;
+            case 'blog':
+                $display_name = 'blog post';
+                break;
         }
 
         return ucwords($display_name);
@@ -32,6 +35,9 @@ class PostGroupType extends \Eloquent
         switch (strtolower($this->attributes['name'])) {
             case 'faq':
                 $display_name = 'faq';
+                break;
+            case 'blog':
+                $display_name = 'blog';
                 break;
         }
 

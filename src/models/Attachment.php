@@ -11,10 +11,16 @@ class Attachment extends \Eloquent
 
     protected $connection = 'fourtwenty.cms';
     protected $fillable = ['id'];
+    protected $appends = ['full_path'];
 
     public function post()
     {
         return $this->morphedByMany('Fourtwenty\Cms\Post', 'attachable');
+    }
+
+    public function getFullPathAttribute()
+    {
+        return url('uploads/' . $this->attributes['path'] . $this->attributes['name']);
     }
 
 }

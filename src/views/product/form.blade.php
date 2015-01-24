@@ -20,14 +20,14 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('marked_price', 'Marked Price (AUD)', ['class' => 'col-sm-3 control-label']) }}
+    {{ Form::label('marked_price', 'Marked Price ('.Config::get('cms::config.currency').')', ['class' => 'col-sm-3 control-label']) }}
     <div class="col-sm-6">
         {{ Form::text('marked_price', Input::old('marked_price'), ['class' => 'form-control']) }}
     </div>
 </div>
 
 <div class="form-group">
-    {{ Form::label('selling_price', 'Selling Price (AUD)', ['class' => 'col-sm-3 control-label required']) }}
+    {{ Form::label('selling_price', 'Selling Price ('.Config::get('cms::config.currency').')', ['class' => 'col-sm-3 control-label required']) }}
     <div class="col-sm-6">
         {{ Form::text('selling_price', Input::old('selling_price'), ['class' => 'form-control']) }}
     </div>
