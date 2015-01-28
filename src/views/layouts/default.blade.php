@@ -14,8 +14,10 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                @if(Config::get('cms::config.products'))
                 <li class="{{ Route::is($path . '.product.*') ? 'active' : '' }}"><a href="{{ route($path . '.product.index') }}">Shop</a></li>
-                <li class="{{ Route::is($path . '.pg.*') ? 'active' : '' }}"><a href="{{ route($path . '.pg.index') }}">CMS</a></li>
+                @endif
+                <li class="{{ Route::is($path . '.pg.*', $path . '.subscriber.*') ? 'active' : '' }}"><a href="{{ route($path . '.pg.index') }}">CMS</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--<li><a href="#">{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</a></li>-->

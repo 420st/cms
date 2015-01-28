@@ -8,4 +8,8 @@
     <a href="{{ route($path . '.pg.post.index', $pg->id) }}" class="list-group-item {{ Route::is($path . '.pg.post.index', $path . '.pg.post.edit') &&  @$postgroup->id == $pg->id ? "active" : "" }}">Manage {{ $pg->type->display_collective_name }}</a>
     @endforeach
     @endif
+    @if(Config::get('cms::config.newsletter'))
+    <span class="list-group-item"><h4 class="list-group-item-heading">Misc.</h4></span>
+    <a href="{{ route($path . '.subscriber.index') }}" class="list-group-item {{ Route::is($path . '.subscriber.index') ? "active" : "" }}">Email Subscribers</a>
+    @endif
 </div>

@@ -16,6 +16,8 @@ Route::group(['prefix' => $config['path'], 'namespace' => 'Fourtwenty\Cms', 'bef
             Route::resource('category', 'ProductCategoryController');
         });
 
+        Route::resource('subscriber', 'SubscriberController');
+
         Route::get('product/delete/{id}', array('uses' => 'ProductController@destroy', 'as' => $config['path'] . '.product.delete'));
         Route::resource('product', 'ProductController');
 
